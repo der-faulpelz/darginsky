@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+<div class="container">
+<h2>Multiple meanings found</h2>
+
+    <div class="table">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="col-sm-1">ID</th>
+      <th scope="col" class="col-sm-3">Word</th>
+      <th scope="col" class="col-sm-3">Translation</th>
+      <th scope="col" class="col-sm-2">Dialect</th>
+      <th scope="col" class="col-sm-3">Grammar</th>
+    </tr>
+  </thead>
+</table>
+</div>
+
+{% for meaning in dif_meanings %}
+
+    <div class="table">
+<table class="table">
+
+  <tbody>
+    <tr>
+      <th scope="row" class="col-sm-1">{{ meaning.id }}</th>
+      <td class="col-sm-3">{{ meaning.theword }}</td>
+      <td class="col-sm-3">{{ meaning.translation }}</td>
+      <td class="col-sm-2">{{ meaning.dialect }}</td>
+      <td class="col-sm-3">{{ meaning.gram_feat }}</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endfor %}
+
+        {% for follower in word.followed.all() %}
+
+    <h2>In other dialects ({{ follower.dialect }}): {{ follower.theword }}</h2>
+
+        <div class="table">
+            <table class="table">
+                <tbody>
+                    <tr>
+                      <th scope="row" class="col-sm-1">{{ follower.id }}</th>
+                      <td class="col-sm-3">{{ follower.theword }}</td>
+                      <td class="col-sm-3">{{ follower.translation }}</td>
+                      <td class="col-sm-2">{{ follower.dialect }}</td>
+                      <td class="col-sm-3">{{ follower.gram_feat }}</td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

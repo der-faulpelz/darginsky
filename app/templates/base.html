@@ -1,0 +1,88 @@
+
+{% extends "bootstrap/base.html" %}
+<html>
+
+    <head>
+
+    {% block head %}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}" >
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+
+
+        {% block styles %}
+        {{super()}}
+        <link rel="stylesheet" href="{{url_for('.static', filename='DD-logo.css')}}">
+
+
+        {% endblock styles %}
+
+
+        {% block title %}
+        <title>DargwaDict: Dargwa Dictionary Project</title>
+        {% endblock title %}
+
+        {% endblock head %}
+        </head>
+
+
+ {% block navbar %}
+            <div class="container">
+
+                       <!--- <ul class="nav navbar-nav navbar-right">
+                        <li><button type="button" class="btn btn-default navbar-btn"><a href="{{ url_for('about') }}">О нас</a></button></li>
+                        <li><button type="button" class="btn btn-default navbar-btn"><a href="{{ url_for('database') }}">База данных</a></button></li>
+
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                        </ul>--->
+            </div>
+
+            {% endblock navbar %}
+
+            {% block content %}
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                          <h1 class="logo"><a href="/base">DargwaDict</a></h1>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                          One of three columns
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                          One of three columns
+                        </div>
+                      </div>
+
+                    </div>
+
+
+            {% include "with-footer.html" %}
+
+    <div class="container">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+            {% block app_content %}  {% endblock %}
+                            </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                          One of three columns
+                        </div>
+                      </div>
+
+                    </div>
+
+            {% endblock %}
+
+
+
+
+
+
+
+
+</html>

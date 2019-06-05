@@ -1,0 +1,166 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+<head>
+  <meta charset="utf-8">
+  <title>DargwaDict | Dargwa Dictionary Project</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta property="og:title" content="">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}" >
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+
+
+  <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+  <script src="js/modernizr-2.7.1.js"></script>
+
+</head>
+<body>
+
+<section id="search">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+          <div class="row margin-50"></div>
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <div class="col-xs-6">
+          <!---<a class="logo" href="index"><img src="static/img/DD-logo-book.svg" alt="Logo"></a>--->
+                    <ul class="nav navbar-nav navbar-left">
+                    <li><a href="../index">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index#contact" class="scroll">Contact</a></li>
+            <li><a href="#">Sign in</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="container">
+   `    <div class="row pad-sm">
+          <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
+
+         <form method="post" role="form">
+          {{ form.hidden_tag() }}
+          {{ wtf.form_errors(form, hiddens="only") }}
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                     <div class="form-row-align-items-center">
+                        <div class="form-group col-md-6">
+                            <div class="input-group-text">
+                            {{ wtf.form_field(form.searched_word, placeholder="Russian or Dargwa") }}
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <form class="form-inline align-items-center">
+                                {{ wtf.form_field(form.dialect) }}
+
+                            </form>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Искать</button>
+
+                        </div>
+                     </div>
+             <!---           <div class="form-check col-md-2">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                              <label class="custom-control-label" for="customCheck1">
+                                  <div class="lead black">Pro</div>
+                              </label>
+                                </div>
+                        </div>--->
+                </div>
+            </div>
+        </form>
+        </div>
+
+
+          <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
+            <h2 class="black">Возможно, вы искали:</h2><br>
+
+     <div class="table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="col-sm-1">ID</th>
+              <th scope="col" class="col-sm-3">Слово</th>
+              <th scope="col" class="col-sm-3">Перевод</th>
+              <th scope="col" class="col-sm-2">Часть речи</th>
+              <th scope="col" class="col-sm-3">Диалект</th>
+            </tr>
+          </thead>
+
+
+<tbody>
+{% for sim_word in similar_words %}
+
+
+              <tr>
+                <th scope="row" class="col-sm-1">{{ sim_word.translation_rus.id }}</th>
+                <td class="col-sm-3"><a style="color:#70cbce" href="word/{{sim_word.word}}">{{ sim_word.word }}</a></td>
+                <td class="col-sm-3">{{ sim_word.translation_rus.translation }}</td>
+                  <td class="col-sm-3">{{ sim_word.pos.pos }}</td>
+                  <td class="col-sm-2" style="background-color:#70cbce">{{ sim_word.dialect.dialect }}</td>
+
+
+              </tr>
+{% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+    </div>
+</div>
+</section>
+</body>
+
+<footer class="pad-xs">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-8 margin-20">
+            <ul class="list-inline social">
+              <li>Find us on</li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="col-sm-4 text-right">
+            <p><small>Project by <a href="#">Dagestan Dreamin'</a><br>
+	             </small></p>
+          </div>
+        </div>
+
+      </div>
+    </footer>
