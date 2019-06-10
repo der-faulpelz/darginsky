@@ -199,5 +199,5 @@ def transcr_drg(cyr_text):
 
 cyrillic = re.compile("[а-яА-Я]+")
 
-print (transcr("ʡaˤpːasi"))
+# print (transcr("ʡaˤpːasi"))
 

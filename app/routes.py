@@ -1,13 +1,10 @@
-import json
 from app import app
-from flask import render_template, request, flash, redirect, url_for, jsonify
+from flask import render_template, request, jsonify
 from app.forms import SearchForm, LoginForm
-from app.models import Word, Grammem, Form, PartOfSpeech, TranslationRu, Frame, HasVerbFrame, NounClass, HasClas
-from database import session
-from sqlalchemy import or_, and_
-from sqlalchemy.orm import aliased
-from app.scripts import transcr, transcr_drg, cyrillic
-import re
+from app.models import Word, Grammem, Form, PartOfSpeech, TranslationRu, Frame, HasVerbFrame
+from app.config.database import session
+from sqlalchemy import or_
+from app.scripts import transcr
 
 
 @app.route('/', methods=["GET", "POST"])
