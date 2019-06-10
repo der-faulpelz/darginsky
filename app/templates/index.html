@@ -24,7 +24,7 @@
 
   <!-- Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
-      <link rel="stylesheet" href="css/animate.css">
+{#      <link rel="stylesheet" href="css/animate.css">#}
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
-  <script src="js/modernizr-2.7.1.js"></script>
+  <script src="{{ url_for('static', filename='js/modernizr-2.7.1.js') }}"></script>
 
 </head>
 
@@ -110,14 +110,14 @@
               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
             </ul>--->
               </div>
-
-               <div class="col-sm-4 text-right">
-                   <p><small>Project by <a href="">Dagestan Dreamin'</a><br>
-                    Find us on &nbsp;
-                    <a href="#"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;
-                    <a href="#"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;
-                    <a href="#"><i class="fa fa-instagram"></i></a></small></p>
-                </div>
+{#TODO: fix #}
+{#               <div class="col-sm-4 text-right">#}
+{#                   <p><small>Project by <a href="">Dagestan Dreamin'</a><br>#}
+{#                    Find us on &nbsp;#}
+{#                    <a href="#"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;#}
+{#                    <a href="#"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;#}
+{#                    <a href="#"><i class="fa fa-instagram"></i></a></small></p>#}
+{#                </div>#}
           </div>
         </div>
 
@@ -193,7 +193,6 @@
         <div class="iphone wow fadeInUp" data-wow-delay="1s">
 
         </div>
-      </div>
       </div>
     </section>
 
@@ -337,38 +336,34 @@
     </section>
 
 --->
-    <footer>
-      <div class="container">
+<footer>
+  <div class="container">
 
-        <div class="row">
-          <div class="col-sm-8 margin-20">
-            <ul class="list-inline social">
-              <li>Find us on</li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-          </div>
-
-          <div class="col-sm-4 text-right">
-            <p><small>Copyright &copy; All rights reserved. <br>
-	            Template created by <a href="#">Visual Soldiers</a></small></p>
-          </div>
-        </div>
-
+    <div class="row">
+      <div class="col-sm-8 margin-20">
+        <ul class="list-inline social">
+          <li>Find us on</li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        </ul>
       </div>
-    </footer>
+
+      <div class="col-sm-4 text-right">
+        <p><small>Copyright &copy; All rights reserved. <br>
+            Template created by <a href="#">Visual Soldiers</a></small></p>
+      </div>
+    </div>
+
+  </div>
+</footer>
 
 
-    <!-- Javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-
-
-
-</html>
+<!-- Javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+<script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>

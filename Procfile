@@ -1,1 +1,1 @@
-web: python darginsky.py
+web: gunicorn --workers=2 app:app
