@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -20,7 +20,7 @@ local_db_url = f"mysql+pymysql://{db_user}:{db_password}@{db_url}/{db_name}"
 
 engine = create_engine(local_db_url, pool_pre_ping=True, pool_timeout=30, pool_recycle=3600)
 connection = engine.connect()
-# metadata = MetaData()
+metadata = MetaData()
 Session = sessionmaker(bind=engine)
 session = Session()
 Base = declarative_base()
