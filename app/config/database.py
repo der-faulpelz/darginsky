@@ -18,7 +18,7 @@ else:  # local dev
 
 local_db_url = f"mysql+pymysql://{db_user}:{db_password}@{db_url}/{db_name}"
 
-engine = create_engine(local_db_url, pool_pre_ping=True)
+engine = create_engine(local_db_url, pool_pre_ping=True, pool_timeout=30, pool_recycle=3600)
 connection = engine.connect()
 # metadata = MetaData()
 Session = sessionmaker(bind=engine)
